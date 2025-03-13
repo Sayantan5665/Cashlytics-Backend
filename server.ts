@@ -13,6 +13,7 @@ import SwaggerOptions from './swagger.json';
 import flash from 'connect-flash';
 import session from 'express-session';
 import createMemoryStore from 'memorystore';
+import ejs from 'ejs';
 
 // Initialize Express app
 const app: Express = express();
