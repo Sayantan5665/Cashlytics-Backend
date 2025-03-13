@@ -5,7 +5,6 @@
         "src": "server.ts",
         "use": "@vercel/node",
         "config": {
-          "includeFiles": ["public/**", "views/**", "uploads/**, node_modules/**"],
           "installCommand": "npm ci"
         }
       }
