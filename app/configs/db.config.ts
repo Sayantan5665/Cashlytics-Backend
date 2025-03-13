@@ -5,7 +5,7 @@ export const connectDB = () => {
     const pass = ':' + (process.env.MONGO_PASS)  //?.replace(/[\/\\-]/g, '')
     const mongodb_uri: string = 'mongodb+srv://' + process.env.MONGO_USER + pass + '@cluster0.wmkkeag.mongodb.net/' + process.env.MONGO_NAME;
 
-    connect(mongodb_uri).then((res) => {
+    connect(mongodb_uri, {serverSelectionTimeoutMS: 30000}).then((res) => {
         console.log('Database connected successfully... 🎉');
         startAgenda();
     }).catch((err) => {
