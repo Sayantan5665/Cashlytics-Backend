@@ -10,5 +10,6 @@ export const connectDB = () => {
         startAgenda();
     }).catch((err) => {
         console.log('Error while connecting database... 😢', err);
+        setTimeout(connectDB, 5000);
     });
 }
