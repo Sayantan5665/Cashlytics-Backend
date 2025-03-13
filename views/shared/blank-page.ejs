@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../layouts/head.ejs') %>
+
+<body>
+  <div class="container-scroller">
+    <!-- partial:../../partials/_navbar.html -->
+    <%- include('../layouts/navbar.ejs') %>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- Flash message -->
+      <% if (messages.length !=0) { %>
+      <% for(let i=0; i<messages.length; i++) { %>
+      <div class="position-absolute" style="width: 100%; top: <%= (i * 60)+10+'px' %>;">
+        <div class="alert alert-<%=messages[i].type%> fade show" style="z-index: 99999; width: auto; max-width: 40%; float: right;" id="flash-alert-<%= i * 2  %>" role="alert">
+          <%= messages[i].msg %>
+          <button type="button" class="btn btn-sm close" id="close" data-dismiss="alert" aria-label="Close" onclick="vanish(`#flash-alert-<%=(i * 2)%>`)">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+      <% } %>
+      <% } %>
+
+      <!-- partial:../../partials/_sidebar.html -->
+      <%- include('../layouts/sidebar.ejs') %>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+        </div>
+        <!-- content-wrapper ends -->
+
+        <!-- partial:../../partials/_footer.html -->
+        <%- include('../layouts/footer.ejs') %>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- scripts -->
+  <%- include('../layouts/scripts.ejs') %>
+</body>
+
+</html>

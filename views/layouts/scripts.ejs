@@ -1,0 +1,74 @@
+<!-- plugins:js -->
+<script src="/assets/vendors/js/vendor.bundle.base.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page -->
+<script src="/assets/vendors/chart.js/chart.umd.js"></script>
+<script src="/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<!-- End plugin js for this page -->
+<!-- inject:js -->
+<script src="/assets/js/off-canvas.js"></script>
+<script src="/assets/js/misc.js"></script>
+<script src="/assets/js/settings.js"></script>
+<script src="/assets/js/todolist.js"></script>
+<script src="/assets/js/jquery.cookie.js"></script>
+<!-- endinject -->
+<!-- For search on select -->
+<script src="/assets/vendors/select2/select2.min.js"></script> <!-- Ensure jQuery is loaded before Select2 -->
+<!-- End for search on select -->
+
+
+<script>
+  /* for connect-flash message */
+  function vanish(key) {
+    $(key).fadeOut('fast');
+  }
+  $(document).ready(function() {
+    setTimeout(function() {
+      $('[id^=flash-alert-]').fadeOut('fast');
+    }, 3000);
+  })
+
+  /* for image preview when choosing image [page: profile]*/
+  function previewImage(inputElementId, previewElementId) {
+    const file = document.getElementById(inputElementId).files[0];
+    const preview = document.getElementById(previewElementId);
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = function() {
+        preview.src = reader.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  /* make the date in format "Feb 10, 2025" */
+  function formatDate(date) {
+    return new Date(date).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  }
+
+
+
+
+  /*
+  This function initializes the date picker for the element with the id 'datePicker'.
+  It uses the Bootstrap Datepicker plugin to provide a user-friendly date selection interface.
+
+  Parameters:
+  - format: A string representing the date format. The default value is 'yyyy-mm-dd'.
+  - todayHighlight: A boolean indicating whether to highlight the current date. The default value is true.
+  - autoclose: A boolean indicating whether to automatically close the date picker after selecting a date. The default value is true.
+
+  Return:
+  - None. The function initializes the date picker and applies the specified options.
+  */
+  $('#datePicker').datepicker({
+    format: 'yyyy-mm-dd',
+    todayHighlight: true,
+    autoclose: true,
+  });
+</script>
