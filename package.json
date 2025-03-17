@@ -8,7 +8,7 @@
     "start": "node  dist/server.js",
     "dev": "nodemon --exec ts-node -r tsconfig-paths/register server.ts",
     "build": "tsc && npm run copy-assets",
-    "copy-assets": "shx cp -r public views uploads dist"
+    "copy-assets": "shx cp -r public views uploads"
   },
   "author": "",
   "license": "ISC",
