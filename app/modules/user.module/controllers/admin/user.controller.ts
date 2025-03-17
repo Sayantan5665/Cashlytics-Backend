@@ -19,7 +19,7 @@ class UserAdminController {
         } catch (error: any) {
             console.log("error: ", error);
             req.flash('message', [{ msg: error.message || 'Something went wrong!', type: 'danger' }] as any);
-            res.redirect('/error');
+            res.redirect('/error-500');
         }
     }
 
@@ -36,7 +36,7 @@ class UserAdminController {
     //     } catch (error: any) {
     //         console.log("error: ", error);
     //         req.flash('message', [{ msg: error.message || 'Something went wrong!', type: 'danger' }] as any);
-    //         res.redirect('/error');
+    //         res.redirect('/error-500');
     //     }
     // }
 
@@ -52,7 +52,7 @@ class UserAdminController {
             });
         } catch (error: any) {
             console.log("error: ", error);
-            res.redirect('/error');
+            res.redirect('/error-500');
         }
     }
 
@@ -69,7 +69,7 @@ class UserAdminController {
         } catch (error: any) {
             console.log("error: ", error);
             req.flash('message', [{ msg: error.message || 'Something went wrong!', type: 'danger' }] as any);
-            res.redirect('/error');
+            res.redirect('/error-500');
         }
     }
 

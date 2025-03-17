@@ -53,12 +53,12 @@ router.use('/verified', async (req: Request, res: Response) => {
     } catch (error: any) {
         console.log("error: ", error);
         req.flash('message', [{ msg: error.message || 'Something went wrong!', type: 'danger' }] as any);
-        res.redirect('/error');
+        res.redirect('/error-500');
     }
 })
-router.use('/error-500', async (req: Request, res: Response) => {
+router.use('/error-500-500', async (req: Request, res: Response) => {
     try {
-        res.render('shared/error-500', {
+        res.render('shared/error-500-500', {
             title: '500',
             data: {
                 url: req.url,
@@ -74,7 +74,7 @@ router.use('/error-500', async (req: Request, res: Response) => {
 })
 router.use('*', async (req: Request, res: Response) => {
     try {
-        res.render('shared/error-404', {
+        res.render('shared/error-500-404', {
             title: '404',
             data: {
                 url: req.url,

@@ -23,7 +23,7 @@ class categoryAdminController {
         } catch (error: any) {
             console.log("error: ", error);
             req.flash('message', [{ msg: error.message || 'Something went wrong!', type: 'danger' }] as any);
-            res.redirect('/error');
+            res.redirect('/error-500');
         }
     }
 
@@ -43,7 +43,7 @@ class categoryAdminController {
         } catch (error: any) {
             console.log("error: ", error);
             req.flash('message', [{ msg: error.message || 'Something went wrong!', type: 'danger' }] as any);
-            res.redirect('/error');
+            res.redirect('/error-500');
         }
     }
     async categoryEditPage(req: Request, res: Response): Promise<any> {
@@ -69,7 +69,7 @@ class categoryAdminController {
         } catch (error: any) {
             console.log("error: ", error);
             req.flash('message', [{ msg: error.message || 'Something went wrong!', type: 'danger' }] as any);
-            res.redirect('/error');
+            res.redirect('/error-500');
         }
     }
 
