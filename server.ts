@@ -68,8 +68,8 @@ app.set('view engine', 'ejs');
 
 // static folder
 app.use(express.static(join(__dirname, 'public')));
-app.use('/views', express.static(join(__dirname, '/views')));
-app.use('/uploads', express.static(join(__dirname, 'uploads')))
+app.use('views', express.static(join(__dirname, '/views')));
+app.use('uploads', express.static(join(__dirname, '/uploads')))
 
 
 // Swagger documentation
