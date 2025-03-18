@@ -547,12 +547,12 @@ class expenseRepository {
   //   //                 "type": "cash-out",
   //   //                 "documents": [
   //   //                     {
-  //   //                         "path": "http://localhost:5503/uploads/expense/67a0d3c13930e10e33fa685b/1740136918442-371355304.jpg",
+  //   //                         "path": "https://cashlytics-backend.vercel.app/uploads/expense/67a0d3c13930e10e33fa685b/1740136918442-371355304.jpg",
   //   //                         "originalName": "user2.jpg",
   //   //                         "_id": "67b861d683fab7ccacb029a4"
   //   //                     },
   //   //                     {
-  //   //                         "path": "http://localhost:5503/uploads/expense/67a0d3c13930e10e33fa685b/1740136918443-531324801.jpg",
+  //   //                         "path": "https://cashlytics-backend.vercel.app/uploads/expense/67a0d3c13930e10e33fa685b/1740136918443-531324801.jpg",
   //   //                         "originalName": "user.jpg",
   //   //                         "_id": "67b861d683fab7ccacb029a5"
   //   //                     }
@@ -580,17 +580,17 @@ class expenseRepository {
   //   //                 "type": "cash-in",
   //   //                 "documents": [
   //   //                     {
-  //   //                         "path": "http://localhost:5503/uploads/expense/67a0d3c13930e10e33fa685b/1740118474891-428535597.jpg",
+  //   //                         "path": "https://cashlytics-backend.vercel.app/uploads/expense/67a0d3c13930e10e33fa685b/1740118474891-428535597.jpg",
   //   //                         "originalName": "7.jpg",
   //   //                         "_id": "67b819ca9bf59bc3afe7a927"
   //   //                     },
   //   //                     {
-  //   //                         "path": "http://localhost:5503/uploads/expense/67a0d3c13930e10e33fa685b/1740118474893-977931585.xlsx",
+  //   //                         "path": "https://cashlytics-backend.vercel.app/uploads/expense/67a0d3c13930e10e33fa685b/1740118474893-977931585.xlsx",
   //   //                         "originalName": "custom_users_data (5).xlsx",
   //   //                         "_id": "67b819ca9bf59bc3afe7a928"
   //   //                     },
   //   //                     {
-  //   //                         "path": "http://localhost:5503/uploads/expense/67a0d3c13930e10e33fa685b/1740118474894-380876537.docx",
+  //   //                         "path": "https://cashlytics-backend.vercel.app/uploads/expense/67a0d3c13930e10e33fa685b/1740118474894-380876537.docx",
   //   //                         "originalName": "PZ Update March 3 ,2023 (1).docx",
   //   //                         "_id": "67b819ca9bf59bc3afe7a929"
   //   //                     }
@@ -618,7 +618,7 @@ class expenseRepository {
   //   //                 "type": "cash-out",
   //   //                 "documents": [
   //   //                     {
-  //   //                         "path": "http://localhost:5503/uploads/expense/67a0d3c13930e10e33fa685b/1740118567295-367169830.jpg",
+  //   //                         "path": "https://cashlytics-backend.vercel.app/uploads/expense/67a0d3c13930e10e33fa685b/1740118567295-367169830.jpg",
   //   //                         "originalName": "7.jpg",
   //   //                         "_id": "67b81a279bf59bc3afe7a92d"
   //   //                     }

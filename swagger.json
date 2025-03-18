@@ -9,10 +9,10 @@
                 "email": "sayantan-support@yopmail.com"
             },
             "servers": [
-                "http://localhost:5503"
+                "https://cashlytics-backend.vercel.app"
             ]
         },
-        "host": "localhost:5503",
+        "host": "cashlytics-backend.vercel.app",
         "tags": [
             {
                 "name": "Auth",

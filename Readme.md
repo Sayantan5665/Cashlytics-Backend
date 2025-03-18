@@ -44,5 +44,5 @@ It will start the server and connect to the the specified port and database.
 please click on the bellow link to see Swagger documentation and test the apis
 
 ```bash
-http://localhost:5503/api-docs/
+https://cashlytics-backend.vercel.app/api-docs/
 ```

@@ -10,7 +10,7 @@ const MONGO_USER = process.env.MONGO_USER;
 const MONGO_PASS = process.env.MONGO_PASS;
 const MONGO_NAME = process.env.MONGO_NAME;
 const mongodb_uri: string = 'mongodb+srv://' + MONGO_USER + ':' + MONGO_PASS + '@cluster0.wmkkeag.mongodb.net/' + MONGO_NAME;
-const BASE_PATH: string = process.env.BASE_PATH || 'http://localhost:5503';
+const BASE_PATH: string = process.env.BASE_PATH || 'https://cashlytics-backend.vercel.app';
 
 const agenda = new Agenda({
   db: { address: mongodb_uri, collection: 'agendaJobs' }
