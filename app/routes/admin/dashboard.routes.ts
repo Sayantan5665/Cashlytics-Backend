@@ -16,7 +16,7 @@ router.get('/', authAdminPanel, (req: Request, res: Response) => {
     } catch (error:any) {
         console.log("error: ", error);
         req.flash('message', [{ msg: error.message || 'Something went wrong!', type: 'danger' }] as any);
-        // res.redirect('/')
+        res.redirect('/error-500')
     }
 })
 
