@@ -8,7 +8,7 @@
           "installCommand": "npm ci",
           "buildCommand": "npm run build",
           "outputDirectory": "dist",
-          "includeFiles": ["tsconfig.json"]
+          "includeFiles": ["tsconfig.json", "node_modules"]
         }
       }
     ],
