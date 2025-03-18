@@ -61,7 +61,15 @@ app.use(flash());
 app.use(cookieParser());
 
 // Enable CORS for cross-origin requests
-app.use(cors());
+const allowedOrigins = ['http://localhost:5504'];
+app.use(cors({
+  origin: allowedOrigins, // Allow only these origins
+  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+}));
+// app.use(cors({
+//     origin: true, // Allow all origins
+//     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+// }));
 
 // Set up EJS as the templating engine for views.
 app.set('view engine', 'ejs');
