@@ -5,8 +5,7 @@
         "src": "server.ts",
         "use": "@vercel/node",
         "config": {
-          "installCommand": "npm ci",
-          "buildCommand": "npm run build",
+          "buildCommand": "npm ci && npm i ejs && npm run build",
           "outputDirectory": "dist",
           "includeFiles": ["tsconfig.json", "node_modules"]
         }
