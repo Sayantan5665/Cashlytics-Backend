@@ -5,9 +5,10 @@
         "src": "server.ts",
         "use": "@vercel/node",
         "config": {
+          "installCommand": "npm ci",
           "buildCommand": "npm ci && npm i ejs && npm run build",
           "outputDirectory": "dist",
-          "includeFiles": ["tsconfig.json"]
+          "includeFiles": ["tsconfig.json", "node_modules/**/*", "views/**/*", "public/**/*", "uploads/**/*"]
         }
       }
     ],
