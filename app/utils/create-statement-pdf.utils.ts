@@ -76,7 +76,7 @@ export const generateStatementPdf = async (data: Array<TableRow>, tableHeading:s
 
     await page.setContent(htmlContent);
 
-    // Generate the PDF and save it to a buffer
+    // Generate the PDF and save it
     const pdfPath = `uploads/PDFs/statement-${Date.now()}.pdf`;
     await page.pdf({ path: pdfPath, format: 'A4' });
 
