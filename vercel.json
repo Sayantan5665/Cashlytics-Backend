@@ -5,7 +5,8 @@
         "src": "server.ts",
         "use": "@vercel/node",
         "config": {
-          "installCommand": "npm ci"
+          "installCommand": "npm ci",
+          "includeFiles": ["tsconfig.json"]
         }
       }
     ],
