@@ -1,7 +1,8 @@
 // import { readFileSync, unlink } from 'fs';
 // import puppeteer, { Browser, Page } from 'puppeteer';
-import puppeteer from 'puppeteer-core';
-import chromium from '@sparticuz/chromium';
+// import puppeteer from 'puppeteer-core';
+// import chromium from '@sparticuz/chromium';
+import { generatePdf } from 'html-pdf-node';
 
 interface TableRow {
     date: string;
@@ -71,6 +72,7 @@ const generateHtml = (data: TableRow[], tableHeading:string, basePath:string): s
     `;
 };
 
+/* npm i puppeteer |  npm install --save-dev @types/puppeteer*/
 // export const generateStatementPdf = async (data: Array<TableRow>, tableHeading:string, basePath:string, reportType: 'generated' | 'daily' | 'monthly') => {
 //     const browser:Browser = await puppeteer.launch({ headless: true });
 //     const page:Page = await browser.newPage();
@@ -118,29 +120,43 @@ const generateHtml = (data: TableRow[], tableHeading:string, basePath:string): s
 // };
 
 
-export const generateStatementPdf = async (data: Array<TableRow>, tableHeading: string, basePath: string, reportType: 'generated' | 'daily' | 'monthly') => {
-    // Setup Chrome to work in serverless environment
-    const browser = await puppeteer.launch({
-        args: chromium.args,
-        defaultViewport: chromium.defaultViewport,
-        executablePath: await chromium.executablePath(),
-        headless: true,
-    });
+
+
+/* npm install puppeteer-core | npm install --save-dev @sparticuz/chromium*/
+// export const generateStatementPdf = async (data: Array<TableRow>, tableHeading: string, basePath: string, reportType: 'generated' | 'daily' | 'monthly') => {
+//     // Setup Chrome to work in serverless environment
+//     const browser = await puppeteer.launch({
+//         args: chromium.args,
+//         defaultViewport: chromium.defaultViewport,
+//         executablePath: await chromium.executablePath(),
+//         headless: true,
+//     });
     
-    const page = await browser.newPage();
+//     const page = await browser.newPage();
+//     const htmlContent = generateHtml(data, tableHeading, basePath);
+
+//     await page.setContent(htmlContent);
+
+//     try {
+//         // Generate the PDF as buffer
+//         const pdfArrayBuffer = await page.pdf({ format: 'A4' });
+        
+//         // Convert Uint8Array to Buffer explicitly
+//         const pdfBuffer = Buffer.from(pdfArrayBuffer);
+        
+//         return pdfBuffer;
+//     } finally {
+//         await browser.close();
+//     }
+// };
+
+
+export const generateStatementPdf = async (data: Array<TableRow>, tableHeading: string, basePath: string, reportType: 'generated' | 'daily' | 'monthly') => {
     const htmlContent = generateHtml(data, tableHeading, basePath);
-
-    await page.setContent(htmlContent);
-
-    try {
-        // Generate the PDF as buffer
-        const pdfArrayBuffer = await page.pdf({ format: 'A4' });
-        
-        // Convert Uint8Array to Buffer explicitly
-        const pdfBuffer = Buffer.from(pdfArrayBuffer);
-        
-        return pdfBuffer;
-    } finally {
-        await browser.close();
-    }
+    
+    const options = { format: 'A4' };
+    const file = { content: htmlContent };
+    
+    const pdfBuffer = await generatePdf(file, options) as any;
+    return pdfBuffer;
 };
