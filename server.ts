@@ -61,7 +61,7 @@ app.use(flash());
 app.use(cookieParser());
 
 // Enable CORS for cross-origin requests
-const allowedOrigins = ['https://cashlytics-backend.vercel.app', 'https://cashlytics-super.vercel.app', 'http://localhost:4500'];
+const allowedOrigins = ['https://cashlytics-backend.vercel.app', 'https://cashlytics-super.vercel.app', 'http://localhost:5503', 'http://localhost:5504'];
 app.use(cors({
   origin: allowedOrigins, // Allow only these origins
   credentials: true, // Allow credentials (cookies, authorization headers, etc.)
