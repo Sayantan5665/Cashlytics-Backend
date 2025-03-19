@@ -33,11 +33,13 @@
     "nodemailer": "^6.9.16",
     "nodemon": "^3.1.9",
     "puppeteer": "^24.4.0",
+    "puppeteer-core": "^24.4.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
     "tsconfig-paths": "^4.2.0"
   },
   "devDependencies": {
+    "@sparticuz/chromium": "^133.0.0",
     "@types/agenda": "^3.0.2",
     "@types/bcryptjs": "^2.4.6",
     "@types/connect-flash": "^0.0.40",
