@@ -316,7 +316,6 @@ class expenseController {
             const pagination: boolean = (req.query.pagination as string) == 'false' ? false : true;
 
             const sendMail = req.query?.sendMail && (req.query.sendMail as string) == 'true' ? true : false;
-            console.log("sendMail: ", sendMail);
 
             if (limit > 0) {
                 delete dateRange.startDate;

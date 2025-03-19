@@ -69,27 +69,48 @@ const generateHtml = (data: TableRow[], tableHeading:string, basePath:string): s
     `;
 };
 
-export const generateStatementPdf = async (data: Array<TableRow>, tableHeading:string, basePath:string, reportType: 'generated' | 'daily' | 'monthly') => {
-    const browser:Browser = await puppeteer.launch({ headless: true });
-    const page:Page = await browser.newPage();
+// export const generateStatementPdf = async (data: Array<TableRow>, tableHeading:string, basePath:string, reportType: 'generated' | 'daily' | 'monthly') => {
+//     const browser:Browser = await puppeteer.launch({ headless: true });
+//     const page:Page = await browser.newPage();
+//     const htmlContent = generateHtml(data, tableHeading, basePath);
+
+//     await page.setContent(htmlContent);
+
+//     // Generate the PDF and save it
+//     const pdfPath = `uploads/PDFs/statement-${Date.now()}.pdf`;
+//     await page.pdf({ path: pdfPath, format: 'A4' });
+
+//     await browser.close();
+
+//     // Read the saved PDF file and return it as a buffer
+//     const pdfBuffer = readFileSync(pdfPath);
+
+//     // Delete the saved PDF file
+//     await new Promise((resolve) => {
+//         unlink(pdfPath, resolve);
+//     });
+
+//     // Return the PDF buffer
+//     return pdfBuffer;
+// }
+
+export const generateStatementPdf = async (data: Array<TableRow>, tableHeading: string, basePath: string, reportType: 'generated' | 'daily' | 'monthly') => {
+    const browser: Browser = await puppeteer.launch({ headless: true });
+    const page: Page = await browser.newPage();
     const htmlContent = generateHtml(data, tableHeading, basePath);
 
     await page.setContent(htmlContent);
 
-    // Generate the PDF and save it
-    const pdfPath = `uploads/PDFs/statement-${Date.now()}.pdf`;
-    await page.pdf({ path: pdfPath, format: 'A4' });
-
-    await browser.close();
-
-    // Read the saved PDF file and return it as a buffer
-    const pdfBuffer = readFileSync(pdfPath);
-
-    // Delete the saved PDF file
-    await new Promise((resolve) => {
-        unlink(pdfPath, resolve);
-    });
-
-    // Return the PDF buffer
-    return pdfBuffer;
-}
+    try {
+        // Generate the PDF as buffer
+        const pdfArrayBuffer = await page.pdf({ format: 'A4' });
+        
+        // Convert Uint8Array to Buffer explicitly
+        const pdfBuffer = Buffer.from(pdfArrayBuffer);
+        
+        return pdfBuffer;
+    } finally {
+        // Make sure browser closes even if there's an error
+        await browser.close();
+    }
+};
